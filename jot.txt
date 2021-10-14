@@ -1,13 +1,11 @@
 docker run --name repo alpine/git clne https://github.com/docker/getting-started.git
 docker-compose run --no-deps web rails new . --force --database=postgresql
-
-
-
 docker-compose up -d --build
 docker-compose down --volumes
 PGPASSWORD=password psql -h db -U postgres
 PGPASSWORD=password psql -h db -U postgres myapp_development
-
+rails generate migration ChangeRateColumnOnReviews
+rails db:migrate
 
 In case you see this: 
 ERROR:  column c.relhasoids does not exist
