@@ -1,3 +1,5 @@
+This DOC has a dump of gotchas!
+
 docker run --name repo alpine/git clne https://github.com/docker/getting-started.git
 docker-compose run --no-deps web rails new . --force --database=postgresql
 docker-compose up -d --build
