@@ -2,7 +2,8 @@
 API to query movies/tv shows and their reviews.
 
 ## Development
-Can follow [Docker Docs](https://docs.docker.com/samples/rails/) for a quickstart on setting up a dockerised rails app
+Can follow [Docker Docs](https://docs.docker.com/samples/rails/) for a quickstart on setting up a dockerised rails app <br/>
+Also check out [Docs](https://guides.rubyonrails.org/active_record_migrations.html) on migrations in rails
 
 
 ## How to start the containers?
