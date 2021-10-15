@@ -31,8 +31,6 @@ ActiveRecord::Schema.define(version: 2021_10_15_055216) do
     t.datetime "updated_at", null: false
   end
 
-  # don't create columns with name 'type': https://stackoverflow.com/a/49593935
-
   create_table "media", force: :cascade do |t|
     t.string "name"
     t.integer "year"
