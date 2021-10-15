@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_14_053945) do
+ActiveRecord::Schema.define(version: 2021_10_15_055216) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -31,19 +31,22 @@ ActiveRecord::Schema.define(version: 2021_10_14_053945) do
     t.datetime "updated_at", null: false
   end
 
+  # don't create columns with name 'type': https://stackoverflow.com/a/49593935
+
   create_table "media", force: :cascade do |t|
     t.string "name"
     t.integer "year"
-    t.string "type"
+    t.string "media_type"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.string "type"
+    t.string "review_type"
     t.integer "rate", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "media"
   end
 
 end

@@ -11,3 +11,22 @@ In case you see this:
 ERROR:  column c.relhasoids does not exist
 
 Upgrade Ruby and pg gem
+
+PS C:\Users\Parth\Documents\PC - Part 3\Programming\Ruby\test-rails\poormans-imdb> docker ps
+CONTAINER ID   IMAGE               COMMAND                  CREATED          STATUS         PORTS                    NAMES
+a90fed91cebe   poormans-imdb_web   "entrypoint.sh bash …"   11 seconds ago   Up 8 seconds   0.0.0.0:3000->3000/tcp   poormans-imdb-web-1
+372bd696b1f5   postgres            "docker-entrypoint.s…"   24 hours ago     Up 9 seconds   5432/tcp                 poormans-imdb-db-1
+PS C:\Users\Parth\Documents\PC - Part 3\Programming\Ruby\test-rails\poormans-imdb> docker exec -it a90fed91cebe bash
+root@a90fed91cebe:/myapp#
+
+
+root@a90fed91cebe:/myapp# bin/rails generate migration RenameTypeInMedium
+Running via Spring preloader in process 84
+      invoke  active_record
+      create    db/migrate/20211015055205_rename_type_in_medium.rb
+root@a90fed91cebe:/myapp# bin/rails generate migration RenameTypeInReview
+Running via Spring preloader in process 90
+      invoke  active_record
+      create    db/migrate/20211015055216_rename_type_in_review.rb
+
+rails db:migrate
