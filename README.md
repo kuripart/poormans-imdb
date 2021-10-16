@@ -2,18 +2,17 @@
 API to query movies/tv shows and their reviews.
 
 ## Development
-Can follow [Docker Docs](https://docs.docker.com/samples/rails/) for a quickstart on setting up a dockerised rails app <br/>
-Also check out [Docs](https://guides.rubyonrails.org/active_record_migrations.html) on migrations in rails
-
-
+- Can follow [Docker Docs](https://docs.docker.com/samples/rails/) for a quickstart on setting up a dockerised rails app <br/>
+- Also check out [Docs](https://guides.rubyonrails.org/active_record_migrations.html) on migrations in rails <br/>
+<br/>
 For Mac:
-If you get this error:
-ActiveRecord::NoDatabaseError (FATAL:  database "myapp_development" does not exist)
-Run:
-rake db:create && rake db:migrate
-Reference: https://stackoverflow.com/a/39540753
+If you get this error: <br/>
+`ActiveRecord::NoDatabaseError (FATAL:  database "myapp_development" does not exist)` <br/>
+Run: <br/>
+`rake db:create && rake db:migrate` <br/>
+Reference: https://stackoverflow.com/a/39540753 <br/>
 
-Eg:
+Eg: <br/>
 ```bash
 root@dec0dff931f2:/myapp# rake db:create && rake db:migrate
 Created database 'myapp_development'
