@@ -6,6 +6,49 @@ Can follow [Docker Docs](https://docs.docker.com/samples/rails/) for a quickstar
 Also check out [Docs](https://guides.rubyonrails.org/active_record_migrations.html) on migrations in rails
 
 
+For Mac:
+If you get this error:
+ActiveRecord::NoDatabaseError (FATAL:  database "myapp_development" does not exist)
+Run:
+rake db:create && rake db:migrate
+Reference: https://stackoverflow.com/a/39540753
+
+Eg:
+```bash
+root@dec0dff931f2:/myapp# rake db:create && rake db:migrate
+Created database 'myapp_development'
+Created database 'myapp_test'
+== 20211009183119 CreateMedia: migrating ======================================
+-- create_table(:media)
+   -> 0.0548s
+== 20211009183119 CreateMedia: migrated (0.0549s) =============================
+
+== 20211009183522 CreateActors: migrating =====================================
+-- create_table(:actors)
+   -> 0.0400s
+== 20211009183522 CreateActors: migrated (0.0401s) ============================
+
+== 20211009183538 CreateDirectors: migrating ==================================
+-- create_table(:directors)
+== 20211009183538 CreateDirectors: migrated (0.0428s) =========================
+
+-- create_table(:reviews)
+   -> 0.0466s
+
+== 20211014053945 ChangeRateColumnOnReviews: migrating ========================
+   -> 0.0037s
+== 20211014053945 ChangeRateColumnOnReviews: migrated (0.0038s) ===============
+
+-- add_column(:reviews, :media, :string)
+   -> 0.0027s
+
+== 20211015055205 RenameTypeInMedium: migrating ===============================
+-- rename_column(:media, :type, :media_type)
+   -> 0.0068s
+== 20211015055205 RenameTypeInMedium: migrated (0.0070s) ======================
+   -> 0.0053s
+== 20211015055216 RenameTypeInReview: migrated (0.0055s) ======================
+```
 ## How to start the containers?
 
 Ensure you have docker and docker-compose installed. Run the following:
@@ -81,8 +124,29 @@ myapp_development=# select name, dob, sex from actors limit 5;
 (5 rows)
 ```
 
+
+## Some common sql commands
+
+To run transactions
+
+```sql
+BEGIN;
+# sql code
+COMMIT;
+ABORT or ROLLBACK; # to not commit
+```
+
+Get schema info for all tables
+
+```sql
+myapp_development=# \d *
+```
+
+
+
 ## Teardown
 
 ```bash
 docker-compose down --volumes
+docker system prune # in case when you want to clean the entire computer
 ```
