@@ -4,50 +4,52 @@ API to query movies/tv shows and their reviews.
 ## Development
 - Can follow [Docker Docs](https://docs.docker.com/samples/rails/) for a quickstart on setting up a dockerised rails app <br/>
 - Also check out [Docs](https://guides.rubyonrails.org/active_record_migrations.html) on migrations in rails <br/>
-<br/>
-For Mac:
-If you get this error: <br/>
-`ActiveRecord::NoDatabaseError (FATAL:  database "myapp_development" does not exist)` <br/>
-Run: <br/>
-`rake db:create && rake db:migrate` <br/>
-Reference: https://stackoverflow.com/a/39540753 <br/>
-
-Eg: <br/>
+- For Mac, if you get this error: <br/>
 ```bash
-root@dec0dff931f2:/myapp# rake db:create && rake db:migrate
-Created database 'myapp_development'
-Created database 'myapp_test'
-== 20211009183119 CreateMedia: migrating ======================================
--- create_table(:media)
-   -> 0.0548s
-== 20211009183119 CreateMedia: migrated (0.0549s) =============================
-
-== 20211009183522 CreateActors: migrating =====================================
--- create_table(:actors)
-   -> 0.0400s
-== 20211009183522 CreateActors: migrated (0.0401s) ============================
-
-== 20211009183538 CreateDirectors: migrating ==================================
--- create_table(:directors)
-== 20211009183538 CreateDirectors: migrated (0.0428s) =========================
-
--- create_table(:reviews)
-   -> 0.0466s
-
-== 20211014053945 ChangeRateColumnOnReviews: migrating ========================
-   -> 0.0037s
-== 20211014053945 ChangeRateColumnOnReviews: migrated (0.0038s) ===============
-
--- add_column(:reviews, :media, :string)
-   -> 0.0027s
-
-== 20211015055205 RenameTypeInMedium: migrating ===============================
--- rename_column(:media, :type, :media_type)
-   -> 0.0068s
-== 20211015055205 RenameTypeInMedium: migrated (0.0070s) ======================
-   -> 0.0053s
-== 20211015055216 RenameTypeInReview: migrated (0.0055s) ======================
+ActiveRecord::NoDatabaseError (FATAL:  database "myapp_development" does not exist)
 ```
+  > Run: <br/>
+   ```bash
+   rake db:create && rake db:migrate
+   ```
+   > Reference: https://stackoverflow.com/a/39540753 <br/>
+
+   > Eg: <br/>
+   ```bash
+   root@dec0dff931f2:/myapp# rake db:create && rake db:migrate
+   Created database 'myapp_development'
+   Created database 'myapp_test'
+   == 20211009183119 CreateMedia: migrating ======================================
+   -- create_table(:media)
+      -> 0.0548s
+   == 20211009183119 CreateMedia: migrated (0.0549s) =============================
+
+   == 20211009183522 CreateActors: migrating =====================================
+   -- create_table(:actors)
+      -> 0.0400s
+   == 20211009183522 CreateActors: migrated (0.0401s) ============================
+
+   == 20211009183538 CreateDirectors: migrating ==================================
+   -- create_table(:directors)
+   == 20211009183538 CreateDirectors: migrated (0.0428s) =========================
+
+   -- create_table(:reviews)
+      -> 0.0466s
+
+   == 20211014053945 ChangeRateColumnOnReviews: migrating ========================
+      -> 0.0037s
+   == 20211014053945 ChangeRateColumnOnReviews: migrated (0.0038s) ===============
+
+   -- add_column(:reviews, :media, :string)
+      -> 0.0027s
+
+   == 20211015055205 RenameTypeInMedium: migrating ===============================
+   -- rename_column(:media, :type, :media_type)
+      -> 0.0068s
+   == 20211015055205 RenameTypeInMedium: migrated (0.0070s) ======================
+      -> 0.0053s
+   == 20211015055216 RenameTypeInReview: migrated (0.0055s) ======================
+   ```
 ## How to start the containers?
 
 Ensure you have docker and docker-compose installed. Run the following:
