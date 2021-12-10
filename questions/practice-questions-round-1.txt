@@ -1,0 +1,6 @@
+1. Number of actors born between 1980-1995
+2. Gender and name of actors born after 1980
+3. Directors who are actors or vica verca
+4. Average review of a given movie
+	4a. 4th largest gropu and alphabetically lowest media name
+5. Total number of tv/movies/anime released in a year
